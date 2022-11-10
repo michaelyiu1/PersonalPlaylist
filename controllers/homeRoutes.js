@@ -16,7 +16,7 @@ router.get('/', async (req,res) => {
         });
 
         // Serialize Data so that the template can read it
-        const playlists = playlistData.map((playlist) => playlist.get({plain: true}));
+        const playlists = playlistData.map((playlistArray) => playlistArray.get({plain: true}));
 
         //Pass Serialized data and session flag into template
         res.render('homepage', {

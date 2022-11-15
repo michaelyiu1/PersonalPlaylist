@@ -14,15 +14,17 @@
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
-        Music Bud
+        My Hit List
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
+        <button class="no-button" id="logout">logout</button> |
+        <a href="/createPlaylist">Create Playlist</a>
         {{else}}
         <a href="/signup">login</a>
+
         {{/if}}
       </nav>
     </header>
@@ -38,6 +40,7 @@
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
+  <script src="/js/createPlaylist.js" ></script>
   {{/if}}
 </body>
 

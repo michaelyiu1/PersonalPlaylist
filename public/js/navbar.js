@@ -8,9 +8,9 @@ const logout = async () => {
       document.location.replace('/');
     } else {
       alert(response.statusText);
-    }
-  };
+  }
+};
 
-  document.querySelector('#logout').addEventListener('click', logout);
+document.querySelector('#logout').addEventListener('click', logout);
 
   

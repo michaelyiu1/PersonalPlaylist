@@ -22,9 +22,8 @@
         <a href="/profile">profile</a> |
         <button class="no-button" id="logout">logout</button> |
         <a href="/createPlaylist">Create Playlist</a>
-        {{else}}
-        <a href="/signup">login</a>
-
+        {{!-- {{else}}
+        <a href="/signup">login</a> --}}
         {{/if}}
       </nav>
     </header>
@@ -39,8 +38,7 @@
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  <script src="/js/createPlaylist.js" ></script>
+  <script src="/js/navbar.js"></script>
   {{/if}}
 </body>
 

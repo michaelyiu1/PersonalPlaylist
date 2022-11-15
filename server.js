@@ -42,6 +42,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 // force false will prevent resetting database each time you start the server
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });

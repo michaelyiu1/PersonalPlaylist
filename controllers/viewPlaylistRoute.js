@@ -8,6 +8,7 @@ router.get('/:id', async (req, res) => {
 
         console.log(req.params.id);
         
+        const playlistID = req.params.id;
         const user = await User.findByPk(req.session.user_id);
         const songData = await Song.findAll({
             include: [Playlist],
@@ -19,7 +20,10 @@ router.get('/:id', async (req, res) => {
         const songs = songData.map((song) => song.get({plain: true}));
 
         console.log(songs);
-        res.render('playlist');
+        res.render('playlist', {
+            songs,
+            playlistID
+        });
 
     } catch (err) {
         res.status(500).json(err);
@@ -27,12 +31,17 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.post('/:id/addSong', async (req, res) => {
+router.post('/:id', async (req, res) => {
     try {
-    console.log('playlist id is ' + req.params.id);
-        
-      const newSong = await Song.create(req.body);
-      console.log(newSong);
+
+        const newSong = await Song.create(req.body);
+
+
+        const songId = newSong.id;
+        // const body = JSON.stringify({ songId,playlistId });
+        // const playlistSong = await PlaylistSong.create(body);
+        console.log(newSong);
+        res.status(200).json(newSong);
 
     } catch (err) {
       console.log(err);

@@ -1,21 +1,25 @@
 const addSong = async (event) => {
     event.preventDefault();
-    console.log('add song');
   
     const title = document.querySelector('#song-title').value.trim();
     const artist = document.querySelector('#song-artist').value.trim();
     const album = document.querySelector('#song-album').value.trim();
-
-    console.log(title + artist + album);
+    const playlistID = document.querySelector('#song-title').dataset.id;
   
     if (title && artist && album) {
-      const response = await fetch(`/viewPlaylist/:id/addSong`, {
+      const response = await fetch(`/viewPlaylist/:id`, {
         method: 'POST',
-        body: JSON.stringify({ title,artist,album }),
+        body: JSON.stringify({ title,artist,album,playlistID }),
         headers: {
           'Content-Type': 'application/json',
         },
       });
+
+      if (response.ok) {
+        document.location.replace(`/viewPlaylist/${playlistID}`);
+      } else {
+        alert('Failed to create project');
+      }
     }
 }
 

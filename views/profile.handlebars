@@ -15,22 +15,20 @@
   <div class="cards" >
     {{#if playlists.length}}
     {{#each playlists as |playlist|}}
-    <div class="card" >
+    <div class="card">
       <div>
         <h3>{{playlist.title}} </h3>
       </div>
       {{playlist.description}}
       <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
           <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/viewPlaylist/{{playlist.id}}">View Playlist</a></div>
+          <div class="text-center"><a class="btn btn-outline-dark mt-auto" data-id="{{playlist.id}}" id="delete-playlist">Delete Playlist</a></div>
       </div>
     </div>
     {{/each}}
     {{/if}}
   </div>
 </section>
-
-
-
 
 <script src="./js/profile.js"></script>
 

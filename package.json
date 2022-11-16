@@ -16,7 +16,9 @@
   "description": "App that allows users to create a profile and create/edit playlists",
   "version": "1.0.0",
   "main": "server.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/michaelyiu1/PersonalPlaylist.git"

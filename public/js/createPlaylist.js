@@ -3,7 +3,6 @@ const submitPlaylist = async (event) => {
     console.log('playlist submitted')
   
     const title = document.querySelector('#playlist-title').value.trim();
-    //const song = document.querySelector('#playlist-song').value.trim();
     const description = document.querySelector('#playlist-description').value.trim();
 
     console.log(title + description);

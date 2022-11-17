@@ -47,14 +47,16 @@ router.get('/profile', withAuth, async (req, res) => {
             include: [{ model : Playlist}]
         });
 
-        const playlistData = await Playlist.findAll({
-            include: [
-                {
-                    model: User,
-                    attributes: ['name'],
-                }
-            ]
-          });
+
+        const playlistData = await Playlist.findAll();
+
+        //   include: [
+        //     {
+        //         model: User,
+        //         attributes: ['name'],
+        //     }
+        // ], where: { user_id: userData.id }
+        console.log(playlistData);
     
         const playlists = playlistData.map((playlist) => playlist.get({plain: true}));
         const user = userData.get({plain: true});

@@ -16,10 +16,15 @@ router.get('/:id', async (req, res) => {
                 playlist_id: req.params.id
             }
         });
+        
+      //  const songData = await Song.findAll();
+
+        console.log(user, songData);
 
         const songs = songData.map((song) => song.get({plain: true}));
-
+        console.log("************");
         console.log(songs);
+
         res.render('playlist', {
             songs,
             playlistID
@@ -33,6 +38,18 @@ router.get('/:id', async (req, res) => {
 
 router.post('/:id', async (req, res) => {
     try {
+
+        console.log(req.body);
+        /*
+        let { title, artist, album, playlistID } = req.body
+
+        let tempSong = {
+            title: title,
+            artist: artist,
+            album: album,
+            playlist_id: playlistID
+        }
+        */
 
         const newSong = await Song.create(req.body);
 

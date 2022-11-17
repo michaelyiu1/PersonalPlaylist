@@ -3,16 +3,20 @@ const { User, Song, Playlist, PlaylistSong } = require('../../models');
 
 router.post('/', async (req, res) => {
     try {
+
+      let { title, description } = req.body;
+      console.log(req.body);
         
-      const newPlaylist = await Playlist.create(req.body);
       const userData = await User.findByPk(req.session.user_id, {
         attributes: {exclude: ['password']},
         include: [{ model : Playlist}]
-    });
+      });
+
+      //const newPlaylist = await Playlist.create(title, description, userID);
+      const newPlaylist = await Playlist.create(req.body);
 
 
       req.session.save(() => {
-        req.session.user_id = userData.id;
         req.session.logged_in = true;
       });
 
@@ -28,6 +32,8 @@ router.post('/', async (req, res) => {
 // DELETE a location
 router.delete('/:id', async (req, res) => {
   try {
+
+    console.log(req.params.id);
     const deletePlaylist = await Playlist.destroy({
       where: {
         id: req.params.id
@@ -42,6 +48,7 @@ router.delete('/:id', async (req, res) => {
     res.status(200).json(deletePlaylist);
   } catch (err) {
     res.status(500).json(err);
+    console.log(err);
   }
 });
 

@@ -1,17 +1,12 @@
-# My Hit List
+# Employee Tracker
 
-Description:
-This application that allows users to create a profile and create/edit playlists
+## Description
+This application that allows users to create a profile and create/edit their own personal playlists
 
-Technologies used:
-- JavaScript
-- Handlebars.js
-- Node.js
-- Express.js
-- MySQL
-- Heroku
-- Deezer API
+## Screenshot
+![Alt text](./images/screenshot.PNG "Optional Title")
 
-Screenshot:
+## Links
+Github Repo: https://github.com/michaelyiu1/employeeTracker
 
-URL:
+Walkthrough Link: https://drive.google.com/file/d/1LXekZh8YaTjDESRoyc-PTqB4Rg2Jhn13/view

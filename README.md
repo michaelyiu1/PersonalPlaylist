@@ -1,4 +1,4 @@
-# Employee Tracker
+# Personal Playlist
 
 ## Description
 This application that allows users to create a profile and create/edit their own personal playlists
